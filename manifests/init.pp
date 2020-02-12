@@ -55,7 +55,7 @@ class prometheus_install {
 }
 
 class { 'prometheus::node_exporter':
-  version            => '0.12.0',
+  version            => '0.18.0',
 }
 
 class { '::mysql::server':
