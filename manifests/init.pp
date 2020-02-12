@@ -47,4 +47,29 @@ class { 'prometheus::node_exporter':
   version            => '0.12.0',
 }
 
+class { '::mysql::server':
+  root_password           => 'root@123',
+  remove_default_accounts => true,
+  restart                 => true,
+}
+
+class { 'grafana':
+  cfg => {
+    app_mode => 'production',
+    server   => {
+      http_port     => 8080,
+    },
+    database => {
+      type     => 'mysql',
+      host     => '127.0.0.1:3306',
+      name     => 'grafana',
+      user     => 'root',
+      password => 'root@123',
+    },
+    users    => {
+      allow_sign_up => true,
+    },
+  },
+}
+
 }
