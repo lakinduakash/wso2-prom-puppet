@@ -87,7 +87,23 @@ class { 'grafana':
         isDefault => true,
       },
     ],
-  }
+  },
+  provisioning_dashboards  => {
+    apiVersion => 1,
+    providers  => [
+      {
+        name            => 'default',
+        orgId           => 1,
+        folder          => '',
+        type            => 'file',
+        disableDeletion => true,
+        options         => {
+          path         => '/var/lib/grafana/dashboards',
+          puppetsource => 'puppet:///modules/prometheus_install/dashboards',
+        },
+      },
+    ],
+  },
 }
 
 }
