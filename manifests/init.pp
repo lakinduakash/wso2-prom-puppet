@@ -40,6 +40,17 @@ class prometheus_install {
         }
       ],
     },
+    {
+      'job_name'        => 'node',
+      'scrape_interval' => '5s',
+      'scrape_timeout'  => '5s',
+      'static_configs'  => [
+        {
+          'targets' => ['localhost:9100'],
+          'labels'  => {'alias' => 'Node'}
+        },
+      ],
+    },
   ],
 }
 
