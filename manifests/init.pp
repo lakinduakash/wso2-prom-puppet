@@ -76,6 +76,18 @@ class { 'grafana':
       allow_sign_up => true,
     },
   },
+  provisioning_datasources => {
+    apiVersion  => 1,
+    datasources => [
+      {
+        name      => 'Prometheus',
+        type      => 'prometheus',
+        access    => 'proxy',
+        url       => 'http://localhost:9090',
+        isDefault => true,
+      },
+    ],
+  }
 }
 
 }
