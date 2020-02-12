@@ -60,7 +60,7 @@ mysql::db { 'grafana':
 }
 
 class { 'grafana':
-  cfg => {
+  cfg                      => {
     app_mode => 'production',
     server   => {
       http_port     => 8080,
