@@ -53,6 +53,12 @@ class { '::mysql::server':
   restart                 => true,
 }
 
+mysql::db { 'grafana':
+  user     => 'root',
+  password => 'root@123',
+  host     => 'localhost',
+}
+
 class { 'grafana':
   cfg => {
     app_mode => 'production',
