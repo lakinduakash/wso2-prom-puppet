@@ -1,52 +1,4 @@
 {
-    "__inputs": [
-      {
-        "name": "Prometheus",
-        "label": "Prometheus Data Source",
-        "description": "Prometheus Data Source",
-        "type": "datasource",
-        "pluginId": "prometheus",
-        "pluginName": "Prometheus"
-      }
-    ],
-    "__requires": [
-      {
-        "type": "panel",
-        "id": "bargauge",
-        "name": "Bar Gauge",
-        "version": ""
-      },
-      {
-        "type": "grafana",
-        "id": "grafana",
-        "name": "Grafana",
-        "version": "6.4.2"
-      },
-      {
-        "type": "panel",
-        "id": "graph",
-        "name": "Graph",
-        "version": ""
-      },
-      {
-        "type": "datasource",
-        "id": "prometheus",
-        "name": "Prometheus",
-        "version": "1.0.0"
-      },
-      {
-        "type": "panel",
-        "id": "singlestat",
-        "name": "Singlestat",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "table",
-        "name": "Table",
-        "version": ""
-      }
-    ],
     "annotations": {
       "list": [
         {
@@ -64,8 +16,7 @@
     "editable": true,
     "gnetId": 11074,
     "graphTooltip": 0,
-    "id": null,
-    "iteration": 1572697129883,
+    "iteration": 1581570171751,
     "links": [
       {
         "asDropdown": false,
@@ -301,32 +252,39 @@
               "last"
             ],
             "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
               "mappings": [],
               "max": 100,
               "min": 0,
-              "thresholds": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "#EAB839",
-                  "value": 60
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 60
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
               "title": "",
               "unit": "percent"
             },
-            "override": {},
+            "overrides": [],
             "values": false
           },
-          "orientation": "horizontal"
+          "orientation": "horizontal",
+          "showUnfilled": true
         },
-        "pluginVersion": "6.4.2",
+        "pluginVersion": "6.6.1",
         "targets": [
           {
             "expr": "100 - (avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"idle\"}[30m])) * 100)",
@@ -389,6 +347,7 @@
         "styles": [
           {
             "alias": "Mounted on",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(50, 172, 45, 0.97)",
@@ -407,6 +366,7 @@
           },
           {
             "alias": "Avail",
+            "align": "auto",
             "colorMode": "value",
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -426,6 +386,7 @@
           },
           {
             "alias": "Used",
+            "align": "auto",
             "colorMode": "cell",
             "colors": [
               "rgba(50, 172, 45, 0.97)",
@@ -445,6 +406,7 @@
           },
           {
             "alias": "Size",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -462,6 +424,7 @@
           },
           {
             "alias": "Filesystem",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -479,6 +442,7 @@
           },
           {
             "alias": "IP",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -498,6 +462,7 @@
           },
           {
             "alias": "",
+            "align": "auto",
             "colorMode": null,
             "colors": [
               "rgba(245, 54, 54, 0.9)",
@@ -566,6 +531,7 @@
           "x": 18,
           "y": 0
         },
+        "hiddenSeries": false,
         "hideTimeOverride": false,
         "id": 16,
         "legend": {
@@ -872,6 +838,7 @@
           "y": 6
         },
         "height": "300",
+        "hiddenSeries": false,
         "id": 13,
         "legend": {
           "alignAsTable": true,
@@ -1005,6 +972,7 @@
           "x": 8,
           "y": 6
         },
+        "hiddenSeries": false,
         "id": 7,
         "legend": {
           "alignAsTable": true,
@@ -1146,6 +1114,7 @@
           "y": 6
         },
         "height": "300",
+        "hiddenSeries": false,
         "id": 157,
         "legend": {
           "alignAsTable": true,
@@ -1255,6 +1224,7 @@
           "x": 0,
           "y": 14
         },
+        "hiddenSeries": false,
         "id": 174,
         "legend": {
           "alignAsTable": true,
@@ -1374,6 +1344,7 @@
           "y": 14
         },
         "height": "300",
+        "hiddenSeries": false,
         "id": 156,
         "legend": {
           "alignAsTable": true,
@@ -1510,6 +1481,7 @@
           "x": 16,
           "y": 14
         },
+        "hiddenSeries": false,
         "id": 175,
         "legend": {
           "alignAsTable": true,
@@ -1612,6 +1584,7 @@
           "y": 22
         },
         "height": "300",
+        "hiddenSeries": false,
         "id": 161,
         "legend": {
           "alignAsTable": true,
@@ -1728,6 +1701,7 @@
           "y": 22
         },
         "height": "300",
+        "hiddenSeries": false,
         "id": 168,
         "legend": {
           "alignAsTable": true,
@@ -1843,6 +1817,7 @@
           "y": 22
         },
         "height": "300",
+        "hiddenSeries": false,
         "id": 160,
         "legend": {
           "alignAsTable": true,
@@ -2171,7 +2146,7 @@
       }
     ],
     "refresh": false,
-    "schemaVersion": 20,
+    "schemaVersion": 22,
     "style": "dark",
     "tags": [
       "Prometheus",
@@ -2182,7 +2157,10 @@
       "list": [
         {
           "allValue": null,
-          "current": {},
+          "current": {
+            "text": "node",
+            "value": "node"
+          },
           "datasource": "Prometheus",
           "definition": "label_values(node_uname_info, job)",
           "hide": 0,
@@ -2204,7 +2182,11 @@
         },
         {
           "allValue": null,
-          "current": {},
+          "current": {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
           "datasource": "Prometheus",
           "definition": "label_values(node_uname_info{job=~\"$job\"}, nodename)",
           "hide": 0,
@@ -2227,7 +2209,11 @@
         {
           "allFormat": "glob",
           "allValue": null,
-          "current": {},
+          "current": {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
           "datasource": "Prometheus",
           "definition": "label_values(node_uname_info{nodename=~\"$hostname\"},instance)",
           "hide": 0,
@@ -2250,7 +2236,10 @@
         },
         {
           "allValue": null,
-          "current": {},
+          "current": {
+            "text": "/",
+            "value": "/"
+          },
           "datasource": "Prometheus",
           "definition": "",
           "hide": 2,
@@ -2273,7 +2262,12 @@
         {
           "allFormat": "glob",
           "allValue": null,
-          "current": {},
+          "current": {
+            "isNone": true,
+            "selected": false,
+            "text": "None",
+            "value": ""
+          },
           "datasource": "Prometheus",
           "definition": "",
           "hide": 2,
@@ -2297,7 +2291,12 @@
         {
           "allFormat": "glob",
           "allValue": "",
-          "current": {},
+          "current": {
+            "isNone": true,
+            "selected": false,
+            "text": "None",
+            "value": ""
+          },
           "datasource": "Prometheus",
           "definition": "label_values(node_exporter_build_info{env=~'$env'},name)",
           "hide": 2,
@@ -2351,7 +2350,7 @@
       ]
     },
     "timezone": "browser",
-    "title": "1  Node Exporter for Prometheus Dashboard English Version  UPDATE 1102",
+    "title": "Node Exporter for Prometheus Dashboard",
     "uid": "hb7fSE0Zz",
-    "version": 13
+    "version": 2
   }
