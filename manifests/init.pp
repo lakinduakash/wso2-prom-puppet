@@ -52,6 +52,11 @@ class prometheus_install {
       ],
     },
   ],
+  alertmanagers_config => [
+    {
+      'static_configs' => [{'targets' => ['localhost:9093']}],
+    },
+  ],
 }
 
 class { 'prometheus::node_exporter':
