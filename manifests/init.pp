@@ -3,7 +3,7 @@
 #
 class prometheus_install {
 
-  $node_targets =['localhost:9090','172.31.9.138:9090']
+  $node_targets =['localhost:9100','172.31.9.138:9100']
 
   info('prom_master:')
   info($facts['prom_master'])
