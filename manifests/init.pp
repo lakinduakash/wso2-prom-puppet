@@ -5,8 +5,8 @@ class prometheus_install {
 
   $node_targets =['localhost:9090']
 
-  log('prom_master:')
-  log($facts['prom_master'])
+  info('prom_master:')
+  info($facts['prom_master'])
 
   if $facts['prom_master'] {
         class { 'prometheus::server':
