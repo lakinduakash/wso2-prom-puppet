@@ -8,6 +8,8 @@ class prometheus_install {
   info('prom_master:')
   info($facts['prom_master'])
 
+  notify {"facts prom_master ${facts['prom_master']}":}
+
   if $facts['prom_master'] {
         class { 'prometheus::server':
       version              => '2.4.3',
