@@ -4,6 +4,7 @@
 class prometheus_install {
 
   $node_targets =['localhost:9100','172.31.9.138:9100']
+  $jmx_node_targets =['172.31.9.138:8082']
 
   info('prom_master:')
   info($facts['prom_master'])
@@ -55,6 +56,17 @@ class prometheus_install {
           'static_configs'  => [
             {
               'targets' => $node_targets,
+              'labels'  => {'alias' => 'Node'}
+            },
+          ],
+        },
+        {
+          'job_name'        => 'jmx_node',
+          'scrape_interval' => '10s',
+          'scrape_timeout'  => '10s',
+          'static_configs'  => [
+            {
+              'targets' => $jmx_node_targets,
               'labels'  => {'alias' => 'Node'}
             },
           ],
