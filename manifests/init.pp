@@ -67,7 +67,7 @@ class prometheus_install {
           'static_configs'  => [
             {
               'targets' => $jmx_node_targets,
-              'labels'  => {'alias' => 'Node'}
+              'labels'  => {'alias' => 'Jmx_Node'}
             },
           ],
         },
