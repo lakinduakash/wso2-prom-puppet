@@ -124,17 +124,14 @@ class prometheus_install {
         'group_wait'      => '30s',
         'group_interval'  => '5m',
         'repeat_interval' => '3h',
-        'receiver'        => 'slack',
+        'receiver'        => 'pagerDuty',
       },
       receivers => [
         {
-          'name'          => 'slack',
-          'slack_configs' => [
+          'name'             => 'pagerDuty',
+          'pagerduty_config' => [
             {
-              'api_url'       => 'https://hooks.slack.com/services/ABCDEFG123456',
-              'channel'       => '#channel',
-              'send_resolved' => true,
-              'username'      => 'username'
+              'service_key' => '63332f625ffa4d72abda2d9067ad3be3'
             },
           ],
         },
