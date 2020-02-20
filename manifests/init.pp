@@ -31,6 +31,31 @@ class prometheus_install {
                   'description' => '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes.'
                 }
               },
+              {
+                'alert'       => 'HighLoad',
+                'expr'        => 'node_load1 > 0.8',
+                'for'         => '5m',
+                'labels'      => {
+                  'severity' => 'page',
+                },
+                'annotations' => {
+                  'summary'     => 'Instance {{ $labels.instance }} have high load',
+                  'description' => '{{ $labels.instance }} of job {{ $labels.job }} has load more than 0.8'
+                }
+              },
+
+              {
+                'alert'       => 'InstanceDown',
+                'expr'        => '(1-(node_filesystem_free_bytes{instance=~\'$node\',fstype=~"ext4|xfs"} / node_filesystem_size_bytes{instance=~\'$node\',fstype=~"ext4|xfs"})) > 0.5',
+                'for'         => '1m',
+                'labels'      => {
+                  'severity' => 'page',
+                },
+                'annotations' => {
+                  'summary'     => 'Instance {{ $labels.instance }} disk is full',
+                  'description' => '{{ $labels.instance }} of job {{ $labels.job }} has disk usage over 0.9'
+                }
+              },
             ],
           },
         ],
