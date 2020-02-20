@@ -128,8 +128,8 @@ class prometheus_install {
       },
       receivers => [
         {
-          'name'             => 'pagerDuty',
-          'pagerduty_config' => [
+          'name'              => 'pagerDuty',
+          'pagerduty_configs' => [
             {
               'service_key' => '63332f625ffa4d72abda2d9067ad3be3'
             },
