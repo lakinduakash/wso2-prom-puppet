@@ -45,8 +45,8 @@ class prometheus_install {
               },
 
               {
-                'alert'       => 'InstanceDown',
-                'expr'        => '(1-(node_filesystem_free_bytes{instance=~\'$node\',fstype=~"ext4|xfs"} / node_filesystem_size_bytes{instance=~\'$node\',fstype=~"ext4|xfs"})) > 0.5',
+                'alert'       => 'DiskFull',
+                'expr'        => '(1 - (node_filesystem_free_bytes{fstype="ext4",mountpoint="/"} / node_filesystem_size_bytes{fstype="ext4",mountpoint="/"})) > 0.3',
                 'for'         => '1m',
                 'labels'      => {
                   'severity' => 'page',
