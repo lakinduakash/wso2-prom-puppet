@@ -56,6 +56,19 @@ class prometheus_install {
                   'description' => '{{ $labels.instance }} of job {{ $labels.job }} has disk usage over 0.9'
                 }
               },
+              {
+                'alert'       => 'HeapMemory Exceeded',
+                'expr'        => 'jvm_memory_bytes_used > 10000',
+                'for'         => '1m',
+                'labels'      => {
+                  'severity' => 'page',
+                },
+                'annotations' => {
+                  'summary'     => 'Instance {{ $labels.instance }} Heap memory usage is exceeded',
+                  'description' => '{{ $labels.instance }} of job {{ $labels.job }} has high heap memeory usage'
+                }
+              },
+
             ],
           },
         ],
