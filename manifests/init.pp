@@ -1,13 +1,13 @@
 # Class: prometheus_install
 #
 #
-class prometheus_install {
+class prometheus_install(
+  Array[String] $node_exporter_targets = ['localhost:9100','172.31.9.138:9100'],
+  Array[String] $jmx_exoorter_targets =['172.31.9.138:8082'],
+  String $pager_duty_service_key='63332f625ffa4d72abda2d9067ad3be3',
+) {
 
-  $node_targets =['localhost:9100','172.31.9.138:9100']
-  $jmx_node_targets =['172.31.9.138:8082']
-  $pager_duty_service_key = '63332f625ffa4d72abda2d9067ad3be3'
-
-  info('prom_master:')
+  info('is prom_master:')
   info($facts['prom_master'])
 
   notify {"facts prom_master ${facts['prom_master']}":}
@@ -94,7 +94,7 @@ class prometheus_install {
           'scrape_timeout'  => '5s',
           'static_configs'  => [
             {
-              'targets' => $node_targets,
+              'targets' => $node_exporter_targets,
               'labels'  => {'alias' => 'Node'}
             },
           ],
@@ -105,7 +105,7 @@ class prometheus_install {
           'scrape_timeout'  => '10s',
           'static_configs'  => [
             {
-              'targets' => $jmx_node_targets,
+              'targets' => $jmx_exoorter_targets,
               'labels'  => {'alias' => 'Jmx_Node'}
             },
           ],
