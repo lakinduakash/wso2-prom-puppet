@@ -2,9 +2,9 @@
 #
 #
 class prometheus_install(
-  Array[String] $node_exporter_targets = ['localhost:9100','172.31.9.138:9100'],
-  Array[String] $jmx_exoorter_targets =['172.31.9.138:8082'],
-  String $pager_duty_service_key='63332f625ffa4d72abda2d9067ad3be3',
+  Array[String] $node_exporter_targets = [],
+  Array[String] $jmx_exoorter_targets =[],
+  String $pager_duty_service_key='',
 ) {
 
   info('is prom_master:')
