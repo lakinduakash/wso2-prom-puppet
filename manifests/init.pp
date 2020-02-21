@@ -5,6 +5,7 @@ class prometheus_install {
 
   $node_targets =['localhost:9100','172.31.9.138:9100']
   $jmx_node_targets =['172.31.9.138:8082']
+  $pager_duty_service_key = '63332f625ffa4d72abda2d9067ad3be3'
 
   info('prom_master:')
   info($facts['prom_master'])
@@ -131,7 +132,7 @@ class prometheus_install {
           'name'              => 'pagerDuty',
           'pagerduty_configs' => [
             {
-              'service_key' => '63332f625ffa4d72abda2d9067ad3be3'
+              'service_key' => $pager_duty_service_key
             },
           ],
         },
